@@ -26,7 +26,7 @@ import type {
   WatchItemCreateInput,
   WatchStatus,
   WatchlistFilters
-} from "@types/watchlist";
+} from "@appTypes/watchlist";
 
 const COLLECTION = "watchlist";
 

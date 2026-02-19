@@ -2,7 +2,7 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import { useWatchlist } from "@hooks/useWatchlist";
-import type { WatchItem, WatchItemCreateInput, WatchStatus, WatchType } from "@types/watchlist";
+import type { WatchItem, WatchItemCreateInput, WatchStatus, WatchType } from "@appTypes/watchlist";
 import toast from "react-hot-toast";
 
 const TYPE_OPTIONS: { value: WatchType; label: string }[] = [

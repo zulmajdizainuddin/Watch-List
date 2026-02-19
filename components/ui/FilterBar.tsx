@@ -1,7 +1,7 @@
 "use client";
 
 import { useWatchlist } from "@hooks/useWatchlist";
-import type { WatchStatus, WatchType, SortOption } from "@types/watchlist";
+import type { WatchStatus, WatchType, SortOption } from "@appTypes/watchlist";
 
 const typeOptions: { value: WatchType | "all"; label: string }[] = [
   { value: "all", label: "All types" },

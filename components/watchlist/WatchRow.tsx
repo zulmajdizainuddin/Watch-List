@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useWatchlist } from "@hooks/useWatchlist";
-import type { WatchStatus, WatchType } from "@types/watchlist";
+import type { WatchStatus, WatchType } from "@appTypes/watchlist";
 import WatchCard from "./WatchCard";
 
 interface WatchRowProps {

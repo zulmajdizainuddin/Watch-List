@@ -1,4 +1,4 @@
-import type { WatchStatus } from "@types/watchlist";
+import type { WatchStatus } from "@appTypes/watchlist";
 
 const statusStyles: Record<WatchStatus, string> = {
   plan_to_watch:
