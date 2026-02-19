@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Watchlist collection - users can only access their own items
+    match /watchlist/{itemId} {
+      // Allow read if the document belongs to the authenticated user
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      
+      // Allow create if authenticated and userId matches the authenticated user
+      allow create: if request.auth != null 
+        && request.auth.uid == request.resource.data.userId
+        && request.resource.data.createdAt != null
+        && request.resource.data.updatedAt != null;
+      
+      // Allow update if authenticated, userId matches, and userId cannot be changed
+      allow update: if request.auth != null 
+        && request.auth.uid == resource.data.userId
+        && request.auth.uid == request.resource.data.userId
+        && request.resource.data.updatedAt != null;
+      
+      // Allow delete if authenticated and userId matches
+      allow delete: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+  }
+}
