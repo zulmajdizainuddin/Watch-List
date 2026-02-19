@@ -1,6 +1,6 @@
 "use client";
 
-import { WatchItem } from "@types/watchlist";
+import { WatchItem } from "@appTypes/watchlist";
 import StatusPill from "@components/ui/StatusPill";
 import RatingBadge from "@components/ui/RatingBadge";
 import { useWatchlist } from "@hooks/useWatchlist";
