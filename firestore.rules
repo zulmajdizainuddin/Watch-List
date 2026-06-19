@@ -6,11 +6,17 @@ service cloud.firestore {
       // Allow read if the document belongs to the authenticated user
       allow read: if request.auth != null && request.auth.uid == resource.data.userId;
       
-      // Allow create if authenticated and userId matches the authenticated user
-      allow create: if request.auth != null 
+      // Allow create if authenticated, userId matches, and only known fields are written
+      allow create: if request.auth != null
         && request.auth.uid == request.resource.data.userId
         && request.resource.data.createdAt != null
-        && request.resource.data.updatedAt != null;
+        && request.resource.data.updatedAt != null
+        && request.resource.data.keys().hasOnly([
+             'userId', 'title', 'type', 'status', 'rating',
+             'notes', 'posterUrl', 'genres',
+             'episodesTotal', 'episodesWatched',
+             'createdAt', 'updatedAt'
+           ]);
       
       // Allow update if authenticated, userId matches, and userId cannot be changed
       allow update: if request.auth != null 
